@@ -2,8 +2,19 @@
   <ion-toolbar>
     <ion-title>login</ion-title>
   </ion-toolbar>
+  <img src="assets/img/logo.png" alt="">
 </ion-header>
 
 <ion-content>
-
+  <ion-item>
+    <ion-label>Adresse mail</ion-label>
+    <ion-input [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Mot de passe</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+  <p><a href="/forgotten_password">Mot de passe oublié ?</a></p>
+  <ion-button color="medium" (click)="login(user)">Login</ion-button>
+  <ion-button color="light" (click)="register()">Register</ion-button>
 </ion-content>
