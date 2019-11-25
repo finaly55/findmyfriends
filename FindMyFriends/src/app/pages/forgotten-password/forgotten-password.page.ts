@@ -7,7 +7,7 @@ import {User} from '../../models/user';
   templateUrl: './forgotten-password.page.html',
   styleUrls: ['./forgotten-password.page.scss'],
 })
-export class ResetPasswordPage implements OnInit {
+export class ForgottenPasswordPage implements OnInit {
 
   user = {} as User;
   constructor(private afAuth: AngularFireAuth) { }
