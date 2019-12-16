@@ -1,19 +1,21 @@
-<ion-header>
-  <img src="assets/img/logo.png" alt="" width="50px">
+<ion-header no-border>
+  <img src="assets/img/logo.png" id="logo" alt="">
 </ion-header>
 
 <ion-content>
   <ion-item>
+    <ion-icon name="md-mail"></ion-icon>
     <ion-label>Adresse mail</ion-label>
     <ion-input [(ngModel)]="user.email"></ion-input>
   </ion-item>
   <ion-item>
+      <ion-icon name="md-lock"></ion-icon>
     <ion-label>Mot de passe</ion-label>
     <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
   <p><a href="/forgotten_password">Mot de passe oublié ?</a></p>
-  <ion-button color="medium" (click)="login(user)">Login</ion-button>
-  <ion-button color="light" (click)="register()">Register</ion-button>
+  <ion-button color="medium" (click)="login(user)">Se Connecter</ion-button>
+  <ion-button color="light" (click)="register()">S'inscrire</ion-button>
 </ion-content>
 
 <ion-footer>

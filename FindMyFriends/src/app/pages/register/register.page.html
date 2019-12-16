@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>register</ion-title>
+    <ion-title>S'enregistrer</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item>
+      <ion-label>Nom</ion-label>
+      <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label>Prénom</ion-label>
+      <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Adresse mail</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Téléphone</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Mot de passe</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-button color="medium" (click)="register(user)">Valider</ion-button>
 
 </ion-content>
