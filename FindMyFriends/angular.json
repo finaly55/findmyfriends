@@ -36,6 +36,9 @@
                 "input": "src/theme/variables.scss"
               },
               {
+                "input": "./node_modules/leaflet/dist/leaflet.css"
+              },
+              {
                 "input": "src/global.scss"
               }
             ],
@@ -110,6 +113,11 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/leaflet/dist/images",
+                "output": "leaflet/"
               }
             ]
           },
