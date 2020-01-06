@@ -88,6 +88,11 @@ html {
   margin-top: 11px;
 }
 
+#logoXS {
+  margin-left: 90px;
+  width: 180px;
+}
+
 ion-content {
   --padding-start: 36px;
   --padding-end: 36px;
@@ -105,7 +110,7 @@ a {
   color: #8D86FF !important;
 }
 
-p {
+#password {
   text-align: right;
 }
 
@@ -140,4 +145,32 @@ ion-title {
   margin-bottom: 20px;
   color : #837CFF;
   font-weight: bold;
+}
+
+.profile-buttons {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.delete-account {
+  padding-top: 40px;
+  color: #D77D7B;
+}
+
+.icon-toolbar {
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.label-toolbar {
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.navbar-text {
+  padding-left: 40px;
+}
+
+.navbar-icon {
+  padding-left: 50px;
 }

@@ -26,7 +26,6 @@ export class LoginPage implements OnInit {
     }
   }
   register() { this.router.navigateByUrl('/register'); }
-
   logout() {
     this.afAuth.auth.signOut().then(() => { this.router.navigateByUrl('/login'); });
   }

@@ -13,13 +13,14 @@
     <ion-label>Mot de passe</ion-label>
     <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
-  <p><a href="/forgotten_password">Mot de passe oublié ?</a></p>
+  <p id="password"><a href="/forgotten_password">Mot de passe oublié ?</a></p>
   <ion-button color="tertiary" (click)="login(user)">Se Connecter</ion-button>
   <ion-button color="tertiary" id="home-register" fill="clear" (click)="register()">S'inscrire</ion-button>
 </ion-content>
 
 <ion-footer no-border>
   <ion-toolbar>
+    <a href="/profile">page profil</a>
     <ion-title class="custom-footer">© 2019 - Entreprise</ion-title>
   </ion-toolbar>
 </ion-footer>

@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },  { path: 'forgotten-password', loadChildren: './pages/forgotten-password/forgotten-password.module#ForgottenPasswordPageModule' },
+  { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
 
 
 ];
