@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Find My Friends</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="selected">
+    <ion-segment-button checked>
+      <ion-label>Groupes</ion-label>
+    </ion-segment-button>
+    <ion-segment-button>
+      <ion-label>Contacts</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="./avatar-finn.png">
+        </ion-avatar>
+        <ion-label>
+          <h2>Groupe 1</h2>
+          <p>Gérard, Camille, Elliot,...</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="./avatar-finn.png">
+        </ion-avatar>
+        <ion-label>
+          <h2>Groupe 1</h2>
+          <p>Gérard, Camille, Elliot,...</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+</ion-content>
