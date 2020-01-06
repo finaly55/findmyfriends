@@ -88,6 +88,11 @@ html {
   margin-top: 11px;
 }
 
+ion-content {
+  --padding-start: 36px;
+  --padding-end: 36px;
+}
+
 ion-item {
   color: #828282;
 }
@@ -105,5 +110,34 @@ p {
 }
 
 ion-button {
-  
+  width: 100%;
+  box-shadow: 0 2px 3px 0px #c0c0c0;
+  margin-top: 25px;
+}
+
+
+.custom-footer {
+  font-size: x-small;
+  color: #B8B8B8;
+  text-align: center;
+}
+
+#home-register {
+  background-color: #EFEEFF;
+}
+
+.arrow-back {
+  margin-left: 15px;
+  margin-top: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+ion-title {
+  font-size: xx-large;
+  margin-top: 100px;
+  margin-left: 28px;
+  margin-bottom: 20px;
+  color : #837CFF;
+  font-weight: bold;
 }
