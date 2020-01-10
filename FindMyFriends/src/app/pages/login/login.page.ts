@@ -27,6 +27,7 @@ export class LoginPage implements OnInit {
   }
   register() { this.router.navigateByUrl('/register'); }
   toDashboard() { this.router.navigateByUrl('/dashboard/groupes'); }
+  forgettenPassword(){ this.router.navigateByUrl('/forgotten-password')}
   logout() {
     this.afAuth.auth.signOut().then(() => { this.router.navigateByUrl('/login'); });
   }
