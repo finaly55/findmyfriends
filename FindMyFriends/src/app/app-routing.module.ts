@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'dashboard', loadChildren: () => import('./communs/tabs/tabs.module').then(m => m.TabsPageModule), pathMatch: 'prefix' },
+  { path: '', loadChildren: () => import('./communs/tabs/tabs.module').then(m => m.TabsPageModule)},
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
   { path: 'forgotten-password', loadChildren: './pages/forgotten-password/forgotten-password.module#ForgottenPasswordPageModule' }
