@@ -1,8 +1,4 @@
-<ion-header no-border>
-  <img src="assets/img/logoXS.png" id="logoXS" alt="">
-</ion-header>
-
-<ion-content>
+<ion-content class="ion-padding">
   <ion-item>
     <ion-label>Nom</ion-label>
     <ion-input></ion-input>
@@ -25,20 +21,6 @@
 <p>CONDITIONS GENERALES</p>
 <p>MENTIONS LEGALES</p>
 <div class="delete-account"><p>SUPPRIMER LE COMPTE</p></div>
+<ion-button color="danger" (click)="logout()">Deconnexion</ion-button>
 </div>
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar>
-    <div class="icon-toolbar">
-    <ion-icon class="navbar-icon" name="contacts"></ion-icon>
-    <ion-icon class="navbar-icon" name="map"></ion-icon>
-    <ion-icon class="navbar-icon" name="person"></ion-icon>
-  </div>
-  <div class="label-toolbar">
-    <ion-label class="navbar-text">Groupes</ion-label>
-    <ion-label class="navbar-text">Cartes</ion-label>
-    <ion-label class="navbar-text">Profil</ion-label>
-  </div>
-  </ion-toolbar>
-</ion-footer>

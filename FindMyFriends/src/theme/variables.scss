@@ -77,22 +77,7 @@
 }
 
 
-html {
-
-}
-
-#logo {
-  width: 198px;
-  height: 198px; 
-  margin-left: 83px;
-  margin-top: 11px;
-}
-
-#logoXS {
-  margin-left: 90px;
-  width: 180px;
-}
-
+// Custom CSS
 ion-content {
   --padding-start: 36px;
   --padding-end: 36px;
@@ -101,76 +86,20 @@ ion-content {
 ion-item {
   color: #828282;
 }
-ion-icon {
-  margin-right: 10px;
-}
 
 a {
   text-decoration: none;
   color: #8D86FF !important;
 }
 
-#password {
-  text-align: right;
-}
-
 ion-button {
   width: 100%;
   box-shadow: 0 2px 3px 0px #c0c0c0;
-  margin-top: 25px;
-}
-
-
-.custom-footer {
-  font-size: x-small;
-  color: #B8B8B8;
-  text-align: center;
-}
-
-#home-register {
-  background-color: #EFEEFF;
-}
-
-.arrow-back {
-  margin-left: 15px;
-  margin-top: 28px;
-  width: 28px;
-  height: 28px;
 }
 
 ion-title {
   font-size: xx-large;
-  margin-top: 100px;
   margin-left: 28px;
-  margin-bottom: 20px;
   color : #837CFF;
   font-weight: bold;
-}
-
-.profile-buttons {
-  text-align: center;
-  margin-top: 60px;
-}
-
-.delete-account {
-  padding-top: 40px;
-  color: #D77D7B;
-}
-
-.icon-toolbar {
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.label-toolbar {
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.navbar-text {
-  padding-left: 40px;
-}
-
-.navbar-icon {
-  padding-left: 50px;
 }
