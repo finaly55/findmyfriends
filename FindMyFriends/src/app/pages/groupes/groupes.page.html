@@ -1,39 +1,94 @@
 
 <ion-content>
-  <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="selected">
-    <ion-segment-button checked>
+  <ion-segment [(ngModel)]="category">
+    <ion-segment-button value="groupes" checked>
       <ion-label>Groupes</ion-label>
     </ion-segment-button>
-    <ion-segment-button>
+    <ion-segment-button value="person">
       <ion-label>Contacts</ion-label>
     </ion-segment-button>
   </ion-segment>
-  <ion-content>
-    <ion-list>
-      <ion-item>
-        <ion-avatar slot="start">
-          <img src="./avatar-finn.png">
-        </ion-avatar>
-        <ion-label>
-          <h2>Groupe 1</h2>
-          <p>Gérard, Camille, Elliot,...</p>
-        </ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
 
   <ion-content>
-    <ion-list>
-      <ion-item>
-        <ion-avatar slot="start">
-          <img src="./avatar-finn.png">
-        </ion-avatar>
-        <ion-label>
-          <h2>Groupe 1</h2>
-          <p>Gérard, Camille, Elliot,...</p>
-        </ion-label>
-      </ion-item>
-    </ion-list>
+    <div [ngSwitch]="category">
+      <ion-list *ngSwitchCase="'groupes'">
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="assets/img/pink-floyd-icon.jpg">
+          </ion-avatar>
+          <ion-label>
+            <h2>Pink floyd fans</h2>
+            <p>Elon, Johnny, Elliot,...</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="assets/img/group-girls-icon.jpg">
+          </ion-avatar>
+          <ion-label>
+            <h2>Les folles</h2>
+            <p>Ariana, Camille, Mauricette,...</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="assets/img/les-petits-indiens-icon.jpg">
+          </ion-avatar>
+          <ion-label>
+            <h2>Les petits indiens</h2>
+            <p>Maxime, Marie, Loriane ...</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="assets/img/queen-icon.jpg">
+          </ion-avatar>
+          <ion-label>
+            <h2>Queen addicts</h2>
+            <p>Francois, Camille, Bernard,...</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'person'">
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="assets/img/elon_musk_royal_society.jpg">
+          </ion-avatar>
+          <ion-label>
+            <h2>Elon Musk</h2>
+            <p>Actuellement au Festival Rock Orvault</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="assets/img/johnny-depp.jpg">
+          </ion-avatar>
+          <ion-label>
+            <h2>Johnny Depp</h2>
+            <p>Festival Rock Orvault il y a 3 min</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="assets/img/ariana-grande.jpg">
+          </ion-avatar>
+          <ion-label>
+            <h2>Ariana Grande</h2>
+            <p>Actuellement au Festival Rock Orvault</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="assets/img/maxime-grand-icon.jpg">
+          </ion-avatar>
+          <ion-label>
+            <h2>Maxime Grand</h2>
+            <p>Concert des Pink Floyd il y a 2 min</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
   </ion-content>
 
 </ion-content>

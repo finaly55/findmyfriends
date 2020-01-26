@@ -75,14 +75,19 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
-
-
-// Custom CSS
-ion-content {
-  --padding-start: 36px;
-  --padding-end: 36px;
+.popupMap .leaflet-popup-content{
+  margin: 0px 19px;
 }
 
+.popupMap .leaflet-popup-tip-container{
+  display: none;
+}
+
+.popupMap{
+  top: -27px;
+}
+
+// Custom CSS
 ion-item {
   color: #828282;
 }

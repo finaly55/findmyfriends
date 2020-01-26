@@ -1,0 +1,60 @@
+{
+    "friends" : [
+        {
+            "name": "Ariana Grande",
+            "long": -1.58316,
+            "lat": 47.2609
+        },
+        {
+            "name": "Johnny Depp",
+            "long": -1.58,
+            "lat": 47.2605
+        },
+        {
+            "name": "Thomas Dutronc",
+            "long": -1.589,
+            "lat": 47.2603
+        },
+        {
+            "name": "Elon Musk",
+            "long": -1.584,
+            "lat": 47.2603
+        },
+        {
+            "name": "Maxime",
+            "long": -1.5655563,
+            "lat": 47.2047
+        },
+        {
+            "name": "Paco",
+            "long": -1.5658669,
+            "lat": 47.2051194
+        },
+        {
+            "name": "Loriane",
+            "long": -1.5665,
+            "lat": 47.20523
+        },
+        {
+            "name": "Marie",
+            "long": -1.5655567,
+            "lat": 47.2054
+        }
+    ],
+    "events" : [
+        {
+            "long" : -1.5655568,
+            "lat" : 47.2051194,
+            "libelle" : "Concert des Pink Floyd",
+            "radius" : 100,
+            "color" : "#f04141"
+        },
+        {
+            "long" : -1.58316,
+            "lat" : 47.2609,
+            "libelle" : "Festival Rock Orvault",
+            "radius" : 500,
+            "color" : "#ffc800"
+        }
+    ]
+ }

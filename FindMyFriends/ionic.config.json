@@ -1,5 +1,7 @@
 {
   "name": "FindMyFriends",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
