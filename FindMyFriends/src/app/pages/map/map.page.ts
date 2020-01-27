@@ -19,16 +19,18 @@ export class MapPage {
   constructor(private geolocation: Geolocation) {}
 
   ionViewDidEnter() { 
-    // In setView add latLng and zoom
     this.map = new Map('mapId').setView([47.2609,-1.58316], 100);
+
+    // permet de choisir le thème de notre carte
     tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
       attribution: 'edupala.com'
     }).addTo(this.map);    
     
+    // permet d'ajouter un listener lié au zoom/dézoom sur la carte
     this.map
       .addEventListener("zoom", this.onZoom)
 
-
+    //permet de boucler sur le fichier data.json qui contiens toute ma liste de contact et d'evenements 
     fetch('assets/data.json').then(res => res.json())
     .then(json => {
       this.friends = json.friends;
@@ -36,6 +38,7 @@ export class MapPage {
       this.leafletMap();
     });
 
+    // permet de se géolocaliser
     this.geolocation.getCurrentPosition().then((resp) => {
       this.map.setView([resp.coords.latitude, resp.coords.longitude], 12);
       circleMarker([resp.coords.latitude, resp.coords.longitude], {radius: 10, color:"#ffff", fillOpacity: "1", fillColor: "#3880ff"}).addTo(this.map)
@@ -45,6 +48,7 @@ export class MapPage {
     });
   }
 
+  // permet de zoomer sur un evenement/une personne quand on clique sur celui ci
   onClickMarker(e){
     e.target.openPopup()
     if (e.target._map._zoom <= 14){
@@ -52,6 +56,7 @@ export class MapPage {
     }
   }
 
+  // permet de faire apparaitre ou non les popups des personnes au zoom/dézoom 
   onZoom(e){
     
     if (e.target._zoom <= 14){
@@ -69,11 +74,13 @@ export class MapPage {
   }
 
   leafletMap() {
+    //ajout de tous les marqueurs de mes contacts sur la map
     for (const friend of this.friends) {
       marker([friend.lat, friend.long]).addTo(this.map)
         .bindPopup(friend.name, {closeButton : false, autoClose: false, closeOnClick: false, autoPan: false, className: "popupMap", minWidth: 0})
         .addEventListener("click", this.onClickMarker)
     }
+    //ajout de tous les cercles des événements sur la map
     for (const event of this.events) {
       circle([event.lat, event.long], {radius: event.radius, color : event.color}).addTo(this.map)
         .bindPopup(event.libelle, {closeButton : false, autoPan: false, className: "popupMap", minWidth: 0})
@@ -81,9 +88,18 @@ export class MapPage {
       }
   }
 
+  // permet de recentrer la carte sur moi
   centerMe(){
     this.geolocation.getCurrentPosition().then((resp) => {
       this.map.setView([resp.coords.latitude, resp.coords.longitude], 17);
+          
+      this.map.eachLayer(function (layer) {
+        if(layer.color == "#ffff"){
+          this.map.removeLayer(layer)
+        }
+      })
+  
+      circleMarker([resp.coords.latitude, resp.coords.longitude], {radius: 10, color:"#ffff", fillOpacity: "1", fillColor: "#3880ff"}).addTo(this.map)
     }).catch((error) => {
       console.log('Error getting location', error);
     });
