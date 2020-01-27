@@ -1,0 +1,31 @@
+<ion-content class="ion-padding">
+
+    <ion-img src="/assets/logo.png" id="logo" alt="Logo Find my Friends"></ion-img>
+
+    <ion-text color="danger" text-center>
+        <p>{{ errorMessage }}</p>
+    </ion-text>
+
+    <ion-list>
+        <form [formGroup]="signinForm" (submit)="onsubmit()">
+            <ion-item>
+                <ion-icon name="mail"></ion-icon>
+                <ion-label>Adresse mail</ion-label>
+                <ion-input type="text" id="email" formControlName="email"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="lock"></ion-icon>
+                <ion-label>Mot de passe</ion-label>
+                <ion-input type="password" id="password" formControlName="password"></ion-input>
+            </ion-item>
+            <ion-button type="submit" expand="block" color="primary">Se connecter</ion-button>
+            <ion-button expand="block" color="tertiary" fill="clear" [routerLink]="['/signup']">S'INSCRIRE</ion-button>
+        </form>
+    </ion-list>
+
+    <ion-button expand="block" color="danger" (click)="onGoogleSubmit()">
+        <ion-icon name="logo-google"></ion-icon>
+        Login with Google
+    </ion-button>
+
+</ion-content>

@@ -1,0 +1,61 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-title>Mon compte</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+        <ion-list-header>
+            Informations
+        </ion-list-header>
+        <ion-item>
+            <ion-label>Pseudo</ion-label>
+            <ion-input type="text" [(ngModel)]="user.pseudo"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Adresse email</ion-label>
+            <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Téléphone</ion-label>
+            <ion-input type="tel" [(ngModel)]="user.phone"></ion-input>
+        </ion-item>
+        <ion-text style="width: 100%" class="ion-text-center" color="primary" fill="clear" (click)="updateUser()">
+            <p>Enregistrer les modifications</p>
+        </ion-text>
+    </ion-list>
+
+    <ion-list>
+        <ion-list-header>
+            Actions
+        </ion-list-header>
+        <ion-item (click)="onSignOut()">
+            <ion-text>
+                <p>Déconnexion</p>
+            </ion-text>
+        </ion-item>
+        <ion-item>
+            <ion-text>
+                <p>Modifier le mot de passe</p>
+            </ion-text>
+        </ion-item>
+        <ion-item (click)="goToLegalPage()">
+            <ion-text>
+                <p>Mentions légales</p>
+            </ion-text>
+        </ion-item>
+        <ion-item (click)="onDeleteUser()">
+            <ion-text color="danger">
+                <p>Supprimer le compte</p>
+            </ion-text>
+        </ion-item>
+    </ion-list>
+
+    <!--<ion-button expand="block" color="light">Enregistrer les modifications</ion-button>
+    <ion-button expand="block">Modifier le mot de passe</ion-button>
+    <ion-button expand="block">Mentions legales</ion-button>
+    <ion-button expand="block" color="danger">Supprimer le compte</ion-button>-->
+
+</ion-content>

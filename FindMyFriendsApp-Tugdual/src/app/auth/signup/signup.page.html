@@ -1,0 +1,35 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-title>Créer un compte</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <ion-grid>
+        <ion-row>
+            <form [formGroup]="signupForm" (ngSubmit)="onsubmit()">
+                <ion-list>
+                    <ion-item>
+                        <ion-label>Adresse mail</ion-label>
+                        <ion-input type="text" formControlName="email"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Mot de passe</ion-label>
+                        <ion-input type="password" formControlName="password"></ion-input>
+                    </ion-item>
+                </ion-list>
+                <ion-button type="submit" color="primary" expand="block" [disabled]="signupForm.invalid">Créer mon compte</ion-button>
+            </form>
+        </ion-row>
+        <ion-row>
+            <ion-text color="danger">
+                <p>{{ errorMessage }}</p>
+            </ion-text>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-title>Mes amis</ion-title>
+    </ion-toolbar>
+    <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="segment">
+        <ion-segment-button value="groups">
+            <ion-label>Mes groupes</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="friends">
+            <ion-label>Mes amis</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+</ion-header>
+
+<ion-content>
+    <ng-container [ngSwitch]="segment">
+
+        <ng-container *ngSwitchCase="'groups'">
+            <ion-list>
+                <ion-item routerLink="group-details" *ngFor="let group of groupList">
+                    <ion-label>
+                        <h2>{{group.title | titlecase}}</h2>
+                        <ion-text color="success" *ngIf="group.status"><p> Groupe actif </p></ion-text>
+                        <p><span *ngFor="let member of group.members">{{member | titlecase}}, </span></p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'friends'">
+            <ion-list>
+                <ion-item routerLink="'group-details" *ngFor="let friend of friendList">
+                    <ion-avatar slot="start">
+                        <img [src]="'/assets/avatars/' + friend.avatar">
+                    </ion-avatar>
+                    <ion-label>
+                        <h2>{{friend.pseudo | titlecase}}</h2>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+        </ng-container>
+
+    </ng-container>
+
+    <ion-fab *ngIf="segment === 'groups'" vertical="bottom" horizontal="end" slot="fixed" (click)="onCreateNewGroup()">
+        <ion-fab-button color="primary">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+    <ion-fab *ngIf="segment === 'friends'" vertical="bottom" horizontal="end" slot="fixed" (click)="onAddFriend()">
+        <ion-fab-button color="primary">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+</ion-content>
