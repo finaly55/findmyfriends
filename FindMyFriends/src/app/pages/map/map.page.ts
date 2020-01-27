@@ -38,19 +38,24 @@ export class MapPage {
       this.leafletMap();
     });
 
-    // permet de se géolocaliser
-    this.geolocation.getCurrentPosition().then((resp) => {
-      this.map.setView([resp.coords.latitude, resp.coords.longitude], 12);
-      circleMarker([resp.coords.latitude, resp.coords.longitude], {radius: 10, color:"#ffff", fillOpacity: "1", fillColor: "#3880ff"}).addTo(this.map)
-
-    }).catch((error) => {
-      console.log('Error getting location', error);
-    });
+    navigator.geolocation.watchPosition((position) => this.watchSuccess(position, this), this.watchError);
   }
 
+  watchSuccess(position, context) {
+    context.map.setView([position.coords.latitude, position.coords.longitude], 12);
+      circleMarker([position.coords.latitude, position.coords.longitude], {radius: 10, color:"#ffff", fillOpacity: "1", fillColor: "#3880ff"})
+      .addEventListener("click", context.onClickMarker)
+      .addTo(context.map)
+  }
+
+  watchError(error){
+    console.log('Error getting location', error);
+  }
   // permet de zoomer sur un evenement/une personne quand on clique sur celui ci
   onClickMarker(e){
-    e.target.openPopup()
+    if(e.target._mRadius == null){
+      e.target.openPopup()
+    }
     if (e.target._map._zoom <= 14){
       e.target._map.setView([e.latlng.lat, e.latlng.lng], 16);
     }
@@ -99,7 +104,9 @@ export class MapPage {
         }
       })
   
-      circleMarker([resp.coords.latitude, resp.coords.longitude], {radius: 10, color:"#ffff", fillOpacity: "1", fillColor: "#3880ff"}).addTo(this.map)
+      circleMarker([resp.coords.latitude, resp.coords.longitude], {radius: 10, color:"#ffff", fillOpacity: "1", fillColor: "#3880ff"})
+      .addEventListener("click", this.onClickMarker)
+      .addTo(this.map)
     }).catch((error) => {
       console.log('Error getting location', error);
     });
