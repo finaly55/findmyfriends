@@ -18,11 +18,11 @@ export class ProfilePage implements OnInit {
   editPassword(){
     this.router.navigateByUrl('/dashboard/edit-password')
   }
-  conditionsGenerales(){
-    this.router.navigateByUrl('/dashboard/conditions-generales')
+  termsOfUse(){
+    this.router.navigateByUrl('/dashboard/terms-of-use')
   }
-  mentionsLegales(){
-    this.router.navigateByUrl('/dashboard/mentions-legales')
+  legalNotice(){
+    this.router.navigateByUrl('/dashboard/legal-notice')
   }
 
 }

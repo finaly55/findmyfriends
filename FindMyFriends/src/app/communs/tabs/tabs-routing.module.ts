@@ -8,22 +8,22 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'conditions-generales',
+        path: 'terms-of-use',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../../pages/conditions-generales/conditions-generales.module').then(m => m.ConditionsGeneralesPageModule)
+              import('../../pages/terms-of-use/terms-of-use.module').then(m => m.TermsOfUsePageModule)
           }
         ]
       },
       {
-        path: 'mentions-legales',
+        path: 'legal-notice',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../../pages/mentions-legales/mentions-legales.module').then(m => m.MentionsLegalesPageModule)
+              import('../../pages/legal-notice/legal-notice.module').then(m => m.LegalNoticePageModule)
           }
         ]
       },
