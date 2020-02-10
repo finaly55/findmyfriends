@@ -8,6 +8,36 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: 'conditions-generales',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../../pages/conditions-generales/conditions-generales.module').then(m => m.ConditionsGeneralesPageModule)
+          }
+        ]
+      },
+      {
+        path: 'mentions-legales',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../../pages/mentions-legales/mentions-legales.module').then(m => m.MentionsLegalesPageModule)
+          }
+        ]
+      },
+      {
+        path: 'edit-password',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../../pages/edit-password/edit-password.module').then(m => m.EditPasswordPageModule)
+          }
+        ]
+      },
+      {
         path: 'groupes',
         children: [
           {

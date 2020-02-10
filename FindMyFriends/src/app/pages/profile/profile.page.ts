@@ -15,5 +15,14 @@ export class ProfilePage implements OnInit {
 
   logout() { this.router.navigateByUrl('/login'); }
 
+  editPassword(){
+    this.router.navigateByUrl('/dashboard/edit-password')
+  }
+  conditionsGenerales(){
+    this.router.navigateByUrl('/dashboard/conditions-generales')
+  }
+  mentionsLegales(){
+    this.router.navigateByUrl('/dashboard/mentions-legales')
+  }
 
 }
