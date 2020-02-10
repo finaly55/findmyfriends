@@ -1,7 +1,6 @@
 import {AngularFireAuth} from '@angular/fire/auth';
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user';
-import {UserService} from '../../services/user.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -12,21 +11,13 @@ import {Router} from '@angular/router';
 export class RegisterPage implements OnInit {
 
   user = {} as User;
-  errorMessage: string;
-  constructor(private afAuth: AngularFireAuth, private router: Router, private  userService: UserService)  { }
+  constructor(private afAuth: AngularFireAuth, private router: Router)  { }
 
   ngOnInit() {
   }
   async register(user: User) {
     try {
-      const result = await this.userService.createUser(user.email, user.password).then(
-          () => {
-            this.router.navigate(['']);
-          },
-          (error) => {
-            this.errorMessage = error;
-          }
-      );
+      const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
       console.log(result);
     } catch (e) {
       console.error(e);

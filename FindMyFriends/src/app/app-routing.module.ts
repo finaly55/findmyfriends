@@ -6,7 +6,9 @@ const routes: Routes = [
   { path: '', loadChildren: () => import('./communs/tabs/tabs.module').then(m => m.TabsPageModule)},
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
-  { path: 'forgotten-password', loadChildren: './pages/forgotten-password/forgotten-password.module#ForgottenPasswordPageModule' }
+  { path: 'forgotten-password', loadChildren: './pages/forgotten-password/forgotten-password.module#ForgottenPasswordPageModule' },  { path: 'terms-of-use', loadChildren: './pages/terms-of-use/terms-of-use.module#TermsOfUsePageModule' },
+  { path: 'legal-notice', loadChildren: './pages/legal-notice/legal-notice.module#LegalNoticePageModule' }
+
 ];
 
 @NgModule({
