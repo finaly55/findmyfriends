@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>edit-profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" *ngIf="user">
+  <div>
+    <ion-item>
+      <ion-label>Nom</ion-label>
+      <ion-input [(ngModel)]="user.lastName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Prénom</ion-label>
+      <ion-input [(ngModel)]="user.firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Adresse mail</ion-label>
+      <ion-input [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Téléphone</ion-label>
+      <ion-input [(ngModel)]="user.phoneNumber"></ion-input>
+    </ion-item>
+    <ion-button (click)="editProfile(user)">Valider</ion-button>
+  </div>
+
+</ion-content>
