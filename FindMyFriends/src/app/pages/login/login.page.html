@@ -1,22 +1,22 @@
-  <ion-toolbar>
-      <img src="assets/img/logo.png" id="logo" alt="">
-  </ion-toolbar>
-
-
 <ion-content>
-  <ion-item>
-    <ion-icon name="md-mail"></ion-icon>
-    <ion-label>Adresse mail</ion-label>
-    <ion-input [(ngModel)]="user.email"></ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-icon name="md-lock"></ion-icon>
-    <ion-label>Mot de passe</ion-label>
-    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-  </ion-item>
-  <p id="password"><a (click)="forgettenPassword()">Mot de passe oublié ?</a></p>
-  <ion-button color="tertiary" (click)="login(user)">Se Connecter</ion-button>
-  <ion-button color="tertiary" id="home-register" fill="clear" (click)="register()">S'inscrire</ion-button>
-  <ion-button color="tertiary" fill="clear" (click)="toDashboard()">Dashboard</ion-button>
+    <img src="assets/logo/logo_full.png" id="logo" alt="Logo Never Lost" style="margin: 8em 0 2em 0;">
+
+    <ion-item>
+        <ion-icon name="mail"></ion-icon>
+        <ion-input type="mail" [(ngModel)]="user.email" placeholder="Adresse mail"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="lock"></ion-icon>
+        <ion-input type="password"  placeholder="Mot de passe" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    <p id="password"><a (click)="forgettenPassword()">Mot de passe oublié ?</a></p>
+
+    <ion-button color="primary" expand="block" (click)="login(user)">
+        Se Connecter
+    </ion-button>
+
+    <ion-button color="primary" expand="block" fill="clear" (click)="register()">
+        Créer un compte
+    </ion-button>
 
 </ion-content>

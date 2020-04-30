@@ -1,4 +1,8 @@
 .popupMap .leaflet-popup-content{
-    margin: 0px 19px;
+    margin: 0 19px;
     background-color: red;
+}
+
+::ng-deep .leaflet-bottom.leaflet-right {
+    display: none !important;
 }

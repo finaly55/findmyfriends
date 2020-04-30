@@ -5,22 +5,22 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TermsOfUsePage } from './terms-of-use.page';
+import { GroupModalPage } from './group-modal.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: TermsOfUsePage
+    component: GroupModalPage
   }
 ];
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        IonicModule,
-        RouterModule.forChild(routes),
-    ],
-  declarations: [TermsOfUsePage]
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RouterModule.forChild(routes)
+  ],
+  declarations: [GroupModalPage]
 })
-export class TermsOfUsePageModule {}
+export class GroupModalPageModule {}

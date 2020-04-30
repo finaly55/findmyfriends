@@ -1,13 +1,13 @@
+<ion-toolbar>
+    <img src="assets/logo/logo_mini.png" id="logoXSHeader" alt="" style="padding: 0 7em;">
+</ion-toolbar>
+
 <ion-content>
-  <div style="position: absolute;z-index:1000;bottom:10%;right:1%;width: 60px;" >
-    <ion-button style="border-radius: 20px">
-      <ion-icon slot="icon-only"  name="notifications"></ion-icon>
-    </ion-button>
+    <div id="map" style="height:100%;"></div>
 
-    <ion-button (click)="centerMe()">
-      <ion-icon slot="icon-only" name="locate"></ion-icon>
-    </ion-button>
-
-  </div>
-  <div id="mapId" style="width: 100%; height: 100%"></div>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="secondary" (click)="centerMe()">
+            <ion-icon name="locate"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </ion-content>

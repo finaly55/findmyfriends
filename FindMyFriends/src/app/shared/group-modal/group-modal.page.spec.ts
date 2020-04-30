@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GroupesPage } from './groupes.page';
+import { GroupModalPage } from './group-modal.page';
 
-describe('GroupesPage', () => {
-  let component: GroupesPage;
-  let fixture: ComponentFixture<GroupesPage>;
+describe('GroupModalPage', () => {
+  let component: GroupModalPage;
+  let fixture: ComponentFixture<GroupModalPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GroupesPage ],
+      declarations: [ GroupModalPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GroupesPage);
+    fixture = TestBed.createComponent(GroupModalPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

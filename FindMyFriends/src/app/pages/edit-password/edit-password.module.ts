@@ -1,26 +1,29 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {Routes, RouterModule} from '@angular/router';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { EditPasswordPage } from './edit-password.page';
+import {EditPasswordPage} from './edit-password.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: EditPasswordPage
-  }
+    {
+        path: '',
+        component: EditPasswordPage
+    }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
-  declarations: [EditPasswordPage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes),
+        ReactiveFormsModule
+    ],
+    exports: [],
+    declarations: [EditPasswordPage]
 })
-export class EditPasswordPageModule {}
+export class EditPasswordPageModule {
+}

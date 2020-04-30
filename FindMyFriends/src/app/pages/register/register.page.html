@@ -1,31 +1,51 @@
 <ion-header no-border>
-  <ion-icon class="arrow-back" name="arrow-back"></ion-icon>
-  <ion-toolbar>
-    <ion-title>S'enregistrer</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="this.navCtrl.back()">
+                <ion-icon slot="icon-only" color="primary" name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="primary">S'enregistrer</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-item>
-      <ion-label>Nom</ion-label>
-      <ion-input></ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-label>Prénom</ion-label>
-      <ion-input></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Adresse mail</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Téléphone</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Mot de passe</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  <ion-button color="tertiary" (click)="register(user)">Valider</ion-button>
+<ion-content class="ion-padding">
+
+    <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
+        <ion-list>
+            <ion-item>
+                <ion-label position="floating">Nom</ion-label>
+                <ion-input type="text" formControlName="lastName"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Prénom</ion-label>
+                <ion-input type="text" formControlName="firstName"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Adresse mail</ion-label>
+                <ion-input type="text" formControlName="email"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Téléphone</ion-label>
+                <ion-input type="tel" formControlName="phoneNumber"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Mot de passe</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Confirmez le mot de passe</ion-label>
+                <ion-input type="password" formControlName="c_password"></ion-input>
+            </ion-item>
+        </ion-list>
+
+        <ion-text color="danger">
+            <p text-center>{{errorMsg}}</p>
+        </ion-text>
+
+        <ion-button type="submit" color="primary" expand="block" [disabled]="registerForm.invalid">
+            Créer mon compte
+        </ion-button>
+    </form>
 
 </ion-content>

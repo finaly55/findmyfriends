@@ -1,20 +1,33 @@
 import {AngularFireAuth} from '@angular/fire/auth';
-import { Component, OnInit } from '@angular/core';
-import {User} from '../../models/user';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {FormControl, Validators} from '@angular/forms';
+import {NavController} from '@ionic/angular';
 
 @Component({
-  selector: 'app-forgotten-password',
-  templateUrl: './forgotten-password.page.html',
-  styleUrls: ['./forgotten-password.page.scss'],
+    selector: 'app-forgotten-password',
+    templateUrl: './forgotten-password.page.html',
+    styleUrls: ['./forgotten-password.page.scss'],
 })
-export class ForgottenPasswordPage implements OnInit {
+export class ForgottenPasswordPage {
+    emailControl = new FormControl('', [Validators.required, Validators.email]);
 
-  user = {} as User;
-  constructor(private afAuth: AngularFireAuth) { }
+    constructor(private afAuth: AngularFireAuth,
+                private navCtrl: NavController,
+                private router: Router) {
+    }
 
-  ngOnInit() {
-  }
-  resetPassword(user: User) {
-    this.afAuth.auth.sendPasswordResetEmail(user.email);
-  }
+    resetPassword() {
+        if (this.emailControl.valid) {
+            this.afAuth.auth.sendPasswordResetEmail(this.emailControl.value).then(() => {
+                /*todo: show 'Email to reset pasword send'*/
+                this.router.navigate(['/login']);
+            });
+        }
+    }
 }
+
+
+
+
+

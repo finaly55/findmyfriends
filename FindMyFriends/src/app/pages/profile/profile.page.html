@@ -1,26 +1,68 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-title color="primary">Mon profile</ion-title>
+    </ion-toolbar>
+</ion-header>
+
 <ion-content class="ion-padding">
-  <ion-item>
-    <ion-label>Nom</ion-label>
-    <ion-input></ion-input>
-</ion-item>
-<ion-item>
-    <ion-label>Prénom</ion-label>
-    <ion-input></ion-input>
-</ion-item>
-<ion-item>
-  <ion-label>Adresse mail</ion-label>
-  <ion-input></ion-input>
-</ion-item>
-<ion-item>
-  <ion-label>Téléphone</ion-label>
-  <ion-input></ion-input>
-</ion-item>
-<div class="profile-buttons">
-<ion-button color="light">MES INFORMATIONS</ion-button>
-<p id="edit-password"><a (click)="editPassword()">MODIFIER LE MOT DE PASSE</a></p>
-<p id="terms-of-use"><a (click)="termsOfUse()">CONDITIONS GENERALES</a></p>
-<p id="legal-notice"><a (click)="legalNotice()">MENTIONS LEGALES</a></p>
-<ion-button color="light">SUPPRIMER LE COMPTE</ion-button>
-<ion-button color="danger" (click)="logout()">Deconnexion</ion-button>
-</div>
+
+    <ion-list *ngIf="!!userProfileForm; else profileLoading">
+        <ion-list-header>
+            Informations
+        </ion-list-header>
+        <form [formGroup]="userProfileForm">
+            <ion-item>
+                <ion-label>Nom</ion-label>
+                <ion-input type="text" formControlName="lastName"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Prénom</ion-label>
+                <ion-input type="text" formControlName="firstName"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Adresse email</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Téléphone</ion-label>
+                <ion-input type="tel" formControlName="phoneNumber"></ion-input>
+            </ion-item>
+            <ion-text style="width: 100%" class="ion-text-center" color="primary" fill="clear" (click)="updateUserProfile(userProfileForm.value)">
+                <p>Enregistrer les modifications</p>
+            </ion-text>
+        </form>
+    </ion-list>
+
+    <ng-template #profileLoading>
+        <ion-spinner name="lines"></ion-spinner>
+        <p>Chargement du profile ...</p>
+    </ng-template>
+
+
+    <ion-list>
+        <ion-list-header>
+            Actions
+        </ion-list-header>
+        <ion-item [routerLink]="['/tabs/edit-password']">
+            <ion-text>
+                <p>Modifier le mot de passe</p>
+            </ion-text>
+        </ion-item>
+        <ion-item [routerLink]="['/tabs/legal-notice']">
+            <ion-text>
+                <p>Mentions légales</p>
+            </ion-text>
+        </ion-item>
+        <ion-item (click)="onSignOut()">
+            <ion-text>
+                <p>Déconnexion</p>
+            </ion-text>
+        </ion-item>
+        <ion-item (click)="onDeleteUser()">
+            <ion-text color="danger">
+                <p>Supprimer le compte</p>
+            </ion-text>
+        </ion-item>
+    </ion-list>
+
 </ion-content>

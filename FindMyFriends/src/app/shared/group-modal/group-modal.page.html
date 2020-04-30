@@ -1,0 +1,47 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-title color="primary">Nouveau groupe</ion-title>
+        <ion-buttons slot="primary">
+            <ion-button (click)="dismissModal()">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <p>Nom du groupe</p>
+    <ion-input id="search-input" type="text" [(ngModel)]="name" placeholder="Entrez le nom du groupe"></ion-input>
+
+    <p>Ajouter des amis au groupe</p>
+    <ion-list *ngIf="friends.length > 0; else noFriends">
+        <ion-item *ngFor="let friend of friends">
+            <ion-label>{{friend['name']}}</ion-label>
+            <ion-icon color="success" name="add" slot="end" (click)="addFriendToGroup(friend)"></ion-icon>
+        </ion-item>
+    </ion-list>
+    <ng-template #noFriends>
+        <small>
+            <ion-text>
+                <p class="ion-text-center">Tous vos amis ont été ajouté a ce groupe</p>
+            </ion-text>
+        </small>
+    </ng-template>
+
+    <p>Membres du groupe</p>
+    <ion-list *ngIf="friendsGroup.length > 0; else noFriendsInGroup">
+        <ion-item *ngFor="let friend of friendsGroup">
+            <ion-label>{{friend['name']}}</ion-label>
+            <ion-icon color="danger" name="close" slot="end" (click)="removeFriendToGroup(friend)"></ion-icon>
+        </ion-item>
+    </ion-list>
+    <ng-template #noFriendsInGroup>
+        <small>
+            <ion-text>
+                <p class="ion-text-center">Aucun membre pour le moment</p>
+            </ion-text>
+        </small>
+    </ng-template>
+
+    <ion-button expand="block" (click)="createGroup()">Créer le groupe</ion-button>
+</ion-content>

@@ -1,0 +1,206 @@
+<ion-header no-border>
+    <ion-toolbar>
+
+        <ion-title color="primary">Mes groupes</ion-title>
+
+        <ion-buttons slot="primary" *ngIf="category === 'groups'">
+            <ion-button *ngIf="!editGroups" (click)="editGroups = !editGroups ">
+                Modifier
+            </ion-button>
+            <ion-button *ngIf="editGroups" (click)="editGroups = !editGroups ">
+                Annuler
+            </ion-button>
+        </ion-buttons>
+
+        <ion-buttons slot="primary" *ngIf="category === 'person'">
+            <ion-button *ngIf="!editFriends" (click)="editFriends = !editFriends ">
+                Modifier
+            </ion-button>
+            <ion-button *ngIf="editFriends" (click)="editFriends = !editFriends ">
+                Annuler
+            </ion-button>
+        </ion-buttons>
+
+    </ion-toolbar>
+
+    <ion-toolbar>
+        <ion-segment [(ngModel)]="category">
+            <ion-segment-button value="groups" checked>
+                <ion-label>Groupes</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="person">
+                <ion-label>Contacts</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [ngSwitch]="category">
+
+    <ng-container *ngSwitchCase="'groups'">
+        <ion-list>
+            <ion-item *ngFor="let group of groups">
+                <ion-label>
+                    <h2>{{group.name}}</h2>
+                    <small>
+                        <ng-container *ngFor="let member of group.members">{{member.name}},</ng-container>
+                    </small>
+                </ion-label>
+                <ion-icon *ngIf="!editGroups" name="checkmark-circle" slot="end"
+                          [color]="(group.name == selectedGroup.name) ? 'success' : ''"
+                          (click)="activeGroup(group)"></ion-icon>
+                <ng-template ngIf="ditGroups">
+                    <ion-icon *ngIf="editGroups" name="create" slot="end"
+                              (click)="editGroup(group)"></ion-icon>
+                    <ion-icon *ngIf="editGroups" color="danger" name="trash" slot="end"
+                              (click)="deleteGroup(group)"></ion-icon>
+                </ng-template>
+            </ion-item>
+        </ion-list>
+
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-fab-button color="secondary" (click)="addGroup()">
+                <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'person'">
+        <div class="search-box">
+            <ion-input type="email" placeholder="Email de vos amis" [(ngModel)]="query"></ion-input>
+            <ion-buttons>
+                <ion-button (click)="searchFriends()">
+                    <ion-icon slot="icon-only" name="search"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </div>
+
+        <div class="search-result" *ngIf="!!searchFriendsResult">
+            <ion-list>
+                <ion-list-header>
+                    Ajouter des amis
+                </ion-list-header>
+                <ion-item *ngFor="let searchResult of searchFriendsResult">
+                    <ion-label>
+                        <h3>{{searchResult['firstName']}} {{searchFriendsResult['lastName']}}</h3>
+                        <p>{{searchResult['email']}}</p>
+                    </ion-label>
+                    <ion-icon name="add-circle" slot="end" (click)="addFriend(searchResult)"></ion-icon>
+                </ion-item>
+            </ion-list>
+        </div>
+
+        <ion-list>
+            <ion-list-header>
+                Mes amis
+            </ion-list-header>
+            <ion-item *ngFor="let friend of friends">
+                <ion-label>{{friend.name}}</ion-label>
+                <ion-icon *ngIf="editFriends" color="danger" name="close-circle" slot="end"
+                          (click)="deleteFriend(friend)"></ion-icon>
+            </ion-item>
+        </ion-list>
+    </ng-container>
+
+</ion-content>
+
+<!--<ion-content [ngSwitch]="category">
+
+    <ng-container *ngSwitchCase="'groups'">
+        <ion-list>
+            <ion-item>
+                <ion-avatar slot="start">
+                    <img src="assets/img/pink-floyd-icon.jpg">
+                </ion-avatar>
+                <ion-label>
+                    <h2>Pink floyd fans</h2>
+                    <p>Elon, Johnny, Elliot,...</p>
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-avatar slot="start">
+                    <img src="assets/img/group-girls-icon.jpg">
+                </ion-avatar>
+                <ion-label>
+                    <h2>Les folles</h2>
+                    <p>Ariana, Camille, Mauricette,...</p>
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-avatar slot="start">
+                    <img src="assets/img/les-petits-indiens-icon.jpg">
+                </ion-avatar>
+                <ion-label>
+                    <h2>Les petits indiens</h2>
+                    <p>Maxime, Marie, Loriane ...</p>
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-avatar slot="start">
+                    <img src="assets/img/queen-icon.jpg">
+                </ion-avatar>
+                <ion-label>
+                    <h2>Queen addicts</h2>
+                    <p>Francois, Camille, Bernard,...</p>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-fab-button>
+                <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'person'">
+        <ion-list>
+            <ion-item>
+                <ion-avatar slot="start">
+                    <img src="assets/img/elon_musk_royal_society.jpg">
+                </ion-avatar>
+                <ion-label>
+                    <h2>Elon Musk</h2>
+                    <p>Actuellement au Festival Rock Orvault</p>
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-avatar slot="start">
+                    <img src="assets/img/johnny-depp.jpg">
+                </ion-avatar>
+                <ion-label>
+                    <h2>Johnny Depp</h2>
+                    <p>Festival Rock Orvault il y a 3 min</p>
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-avatar slot="start">
+                    <img src="assets/img/ariana-grande.jpg">
+                </ion-avatar>
+                <ion-label>
+                    <h2>Ariana Grande</h2>
+                    <p>Actuellement au Festival Rock Orvault</p>
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-avatar slot="start">
+                    <img src="assets/img/maxime-grand-icon.jpg">
+                </ion-avatar>
+                <ion-label>
+                    <h2>Maxime Grand</h2>
+                    <p>Concert des Pink Floyd il y a 2 min</p>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-fab-button>
+                <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+
+    </ng-container>
+
+</ion-content>-->

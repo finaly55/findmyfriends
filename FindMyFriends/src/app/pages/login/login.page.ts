@@ -1,34 +1,42 @@
 import {AngularFireAuth} from '@angular/fire/auth';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {User} from '../../models/user';
+import {User} from '../../core/models/user';
+import {AuthService} from '../../core/services/auth.service';
 
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+    selector: 'app-login',
+    templateUrl: './login.page.html',
+    styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
 
-  user = {} as User;
-  constructor(private afAuth: AngularFireAuth, private router: Router) {
-  }
-  ngOnInit() {}
-  async login(user: User) {
-    try {
-      const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
-      if (result) {
-        this.router.navigateByUrl('/home');
-      }
-    } catch (e) {
-      console.error(e);
+    user = {} as User;
+    errorMessage = '';
+
+    constructor(private afAuth: AngularFireAuth,
+                private authService: AuthService,
+                private router: Router) {
     }
-  }
-  register() { this.router.navigateByUrl('/register'); }
-  toDashboard() { this.router.navigateByUrl('/dashboard/groupes'); }
-  forgettenPassword(){ this.router.navigateByUrl('/forgotten-password')}
-  logout() {
-    this.afAuth.auth.signOut().then(() => { this.router.navigateByUrl('/login'); });
-  }
+
+    login(user: User) {
+        this.authService.signInUser(user.email, user.password).then(
+            () => {
+                this.router.navigate(['/tabs']);
+            },
+            (error) => {
+                this.errorMessage = error;
+            }
+        );
+    }
+
+    register() {
+        this.router.navigateByUrl('/register');
+    }
+
+
+    forgettenPassword() {
+        this.router.navigateByUrl('/forgotten-password');
+    }
 }

@@ -24,3 +24,34 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.popupMap .leaflet-popup-content {
+  margin: 0 19px;
+}
+
+.popupMap .leaflet-popup-tip-container {
+  display: none;
+}
+
+.popupMap {
+  top: -27px;
+}
+
+// Custom CSS
+ion-item {
+  color: #828282;
+}
+
+.search-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 0.2em;
+  background: #f3f3f3;
+}
+
+/*ion-title {
+  font-size: xx-large;
+  margin-left: 28px;
+  font-weight: bold;
+}*/
